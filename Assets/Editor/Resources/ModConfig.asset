@@ -14,7 +14,16 @@ MonoBehaviour:
   id: StockImages
   title: Stock Images
   author: Deaf
-  description: lmao lamborghini
+  description: 'lmao lamborghini
+
+
+    Press the picture that has the highest value in a list.
+
+
+    Manual can be found at ktane.timwi.de or in the manuals folder of your game.
+
+
+    If there are any bugs, contact Fartlicker777#9169 on Discord.'
   version: 1.0
   outputFolder: build
   previewImage: {fileID: 2800000, guid: 75e9f279b77c75345a74c281f4eec278, type: 3}
