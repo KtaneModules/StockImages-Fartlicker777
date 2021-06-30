@@ -10,7 +10,7 @@ public class StockImages : MonoBehaviour {
    public Material[] Pictures;
    public GameObject[] Buttons2;
 
-   private List<int> Images = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39 };
+   private readonly List<int> Images = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39 };
    int Answer;
 
    readonly string[] Pos = { "TL", "BL", "BR" };
@@ -71,12 +71,12 @@ public class StockImages : MonoBehaviour {
 #pragma warning restore 414
 
    IEnumerator ProcessTwitchCommand (string Command) {
-      yield return null;
-      Command = Command.Trim().ToUpper();
-      if (!"TL BL BR".Contains(Command)) {
-         yield return "sendtochaterror I don't understand!";
+      Command = Command.ToUpperInvariant().Trim();
+      if (Command.EqualsAny("TL", "BR", "BL"))
+      {
+         yield return null;
+         Buttons[Array.IndexOf(Pos, Command)].OnInteract();
       }
-      Buttons[Array.IndexOf(Pos, Command)].OnInteract();
    }
 
    IEnumerator TwitchHandleForcedSolve () {
