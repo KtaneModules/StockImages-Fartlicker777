@@ -72,8 +72,7 @@ public class StockImages : MonoBehaviour {
 
    IEnumerator ProcessTwitchCommand (string Command) {
       Command = Command.ToUpperInvariant().Trim();
-      if (Command.EqualsAny("TL", "BR", "BL"))
-      {
+      if (Command.EqualsAny("TL", "BR", "BL")) {
          yield return null;
          Buttons[Array.IndexOf(Pos, Command)].OnInteract();
       }
